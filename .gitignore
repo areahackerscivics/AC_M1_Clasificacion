@@ -1,0 +1,6 @@
+*.pyc
+
+conexionMongo.py
+*.rdf
+
+*.json
