@@ -21,7 +21,10 @@ Este módulo fue desearrollado con **Python 2.7.11**
  * [NumPy v1.13.1](http://www.numpy.org/)
  * [SciPy v0.19.1](https://www.scipy.org/)
 
-**Nota**: El modulo fue desarrollado usando las librerías que se mencionaron anteriormente, por lo que se recomienda  que para un adecuado funcionamiento se usen  las versiones establecidas.
+**Nota**: El modulo fue desarrollado usando las librerías que se mencionaron anteriormente, por lo que se recomienda  que para un adecuado funcionamiento se usen  las versiones establecidas. Si durante la instalación de Scipy da un error de memoria prueba
+```
+pip install scipy==0.19.0 --no-cache-dir
+```
 
 ##### Base de datos
 
@@ -45,19 +48,6 @@ TWEET
 
 ```
 ```json
-TWENTRENADO
-{
-    "_id" : ObjectId("58de2b51bc54f401c8fead42"),
-    "categoria" : "Comercio",
-    "idt" : "123456789",
-    "texto" : "este texto habla sobre Comercio",
-    "reentreno" : true,
-    "fecha" : ISODate("2017-03-31T12:11:29.398Z"),
-    "fechaTweet" : ISODate("2017-03-14T20:36:56.000Z")
-}
-
-```
-```json
 TWCLASIFICADO
 {
     "_id" : ObjectId("58de2570bc54f43b544428e0"),
@@ -70,37 +60,14 @@ TWCLASIFICADO
 }
 
 ```
-```json
-clasificadores
-{
-    "_id" : ObjectId("5943be112f102319320438ea"),
-    "entrena_ini" : ISODate("2017-01-01T00:00:00.000Z"),
-    "fecha_creacion" : ISODate("2017-06-16T13:16:32.591Z"),
-    "desviacion" : 0.162941509631049,
-    "entrena_fin" : ISODate("2017-01-02T23:59:59.999Z"),
-    "nombre" : "prueba",
-    "accuracy" : 0.687914670421071,
-    "predeterminado" : true
-}
 
-```
 La colección **TWEET** se crea en tiempo de ejecución la primera vez que se ejecuta el código _DescargaTweet.py_  que se encuentra dentro del módulo  <a href="https://github.com/areahackerscivics/DescargaTweet" target="_blank_"> DescargaTweet </a>.
 
-La colección **TWCLASIFICADO** contiene los textos clasificados automáticamente. Como hablamos de un sistema de clasificación supervisada debe existir la colección **TWENTRENADO**.
+La colección **TWCLASIFICADO** contiene los textos clasificados automáticamente.
 
 En el archivo **ConexionMongoPublico.py**, se indican los nombres de las colecciones y la base de datos con la que se trabajó, si desea poner otro nombre a la base de datos o  de alguna de las colecciones, es necesario que actualice el archivo. Finalmente debe cambiar  el nombre a  **ConexionMongo.py** .
 
 El Àrea se abstiene de publicar los datos almacenados, debido a la Ley Orgánica de Protección de Datos.
-
-##### Funcionamiento del proyecto
-
-Este proyecto está diseñado con una arquitectura de 3 capas.  
-
-**Capa de acceso a datos (DAO)**, que contiene todas las consultas a la base de datos.  
-
-**Capa Lógica o de negocio (BLL)**, es la encargada de gestionar todo lo referente a la lógica del proyecto.
-
-**Capa de presentación (GUI)** es la que comunica la información al usuario y se inicia con la ejecución del archivo  _Paginas.py_
 
 
 ## Equipo
