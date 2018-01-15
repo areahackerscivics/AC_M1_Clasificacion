@@ -7,6 +7,7 @@ import cPickle as pickle
 from normalizacion import *
 from tweetsToText import convNumToNom
 from clasificacionDAO import *
+from datetime import datetime
 
 
 
@@ -22,6 +23,7 @@ def transformar(textos, nombre):
 # 3 procesopickle
 def leer_Pickle(parametro):
     datafile = os.path.abspath(parametro)
+    #datafile=os.path.join("AC_M1_Clasificacion",parametro) #ruta crontab linux
     fichero = file(datafile)
     variable = pickle.load(fichero)
     return variable
@@ -29,7 +31,7 @@ def leer_Pickle(parametro):
 
 
 def generar_clasificacion():
-    print "Comienza el proceso de clasificación...".decode('utf-8')
+    print str(datetime.now())," - Inicia el proceso de clasificación...".decode('utf-8')
 
     #1--------------------cargar el corpus-------------------
     idt,corpus,fechaTweet=leer()
@@ -40,15 +42,15 @@ def generar_clasificacion():
         if nombre!=-1:#validación de vacio
             tfidf=transformar(corpus,nombre)
             SGDtfidf=leer_Pickle(nombre +'.pickle')
-
-            print 'Se ha usado el vectorizador....'
+            #print 'Se ha usado el vectorizador....'
             clases=SGDtfidf.classes_ #generando las clases
-
             puntaje=SGDtfidf.decision_function(tfidf) #generando puntajes
-            print 'Se ha usado el clasificador....'
+            #print 'Se ha usado el clasificador....'
             #4--------------------Guardar  en db Clasificador-------------------
 
             #escribirClasificados(corpus,puntaje,clases,idt)
             guardar_textoclasificados(corpus,puntaje,clases,idt,fechaTweet)
+    else:
+        print str(datetime.now())," - No hay tweets para clasificar"
 #Fin BLL
 generar_clasificacion()

@@ -6,12 +6,13 @@ Este módulo contiene los métodos que permiten consultar
 campos de la colección que contiene los textos descargados de Twitter
 """
 import sys, os
-import datetime
+#import datetime
 from pymongo import MongoClient#Libreria Mongodb
 parent_dir=os.getcwd()
 path= os.path.dirname(parent_dir)
 sys.path.append(path)
 from tweetsToText import *
+from datetime import datetime
 
 #REAL
 from conexionMongo import *
@@ -71,7 +72,7 @@ def getMaxIdt():
 def guardar_textoclasificados(corpus,puntaje,clases,idt,fechaTweet):
     coleccion = getCollTweetsClas()
     tweetsdb = db[coleccion]
-    today=datetime.datetime.now()
+    today=datetime.now()
     for i in range(len(corpus)):
         lista= sorted(zip(puntaje[i],  clases), reverse=True)
         categoria=convNumToNom(lista[0][1])
@@ -87,4 +88,4 @@ def guardar_textoclasificados(corpus,puntaje,clases,idt,fechaTweet):
             tweetsdb.insert_one(guardar)#MIRAR SI SE PUEDE MEJORAR EL INSERT (INSERT MANY)
         except:
                 print "No se pudo guardar"
-    print 'Han sido clasificados ',len(corpus),'tweets'
+    print str(datetime.now()),"- Han sido clasificados" ,len(corpus),"tweets"
