@@ -31,7 +31,7 @@ def leer_Pickle(parametro):
 
 
 def generar_clasificacion():
-    print str(datetime.now())," - Inicia el proceso de clasificación...".decode('utf-8')
+    print str(datetime.now())," - Inicia el proceso de clasificacion..."
 
     #1--------------------cargar el corpus-------------------
     idt,corpus,fechaTweet=leer()
