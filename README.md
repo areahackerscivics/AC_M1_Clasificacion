@@ -74,7 +74,7 @@ El Àrea se abstiene de publicar los datos almacenados, debido a la Ley Orgánic
 - Autores principales:  
 
   - **<a href="https://www.linkedin.com/in/marylin-mattos-a0a59b22/" target="_blank"> Marylin Mattos Barros</a>**, estudiante de Máster Oficial Universitario en Gestión de la Información
-  - **<a href="https://github.com/xikoto" target="_blank">José Miguel Benítez</a>**, estudiante de grado en ingeniería Informática.
+  
 
 
 - Director del proyecto:
